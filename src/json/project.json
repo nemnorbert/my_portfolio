@@ -1,0 +1,154 @@
+{
+    "active":[
+        "redcat_id",
+        "rabraby",
+        "reshape",
+        "donut",
+        "sol",
+        "szelence",
+        "wedding",
+        "cookiecat",
+        "counter",
+        "epit7ek"
+    ],
+
+    "redcat_id": {
+        "name": "REDCAT iD",
+        "title": {
+            "hu": "Digitális Névjegykártya",
+            "en": "Digital Business card"
+        },
+        "desc": {
+            "hu": "Ez egy teszt",
+            "en": "This is a test"
+        },
+        "tech": "css ts php mysql",
+        "cover": "redcat_id.webp"
+    },
+
+    "rabraby": {
+        "name": "Rab Ráby",
+        "title": {
+            "hu": "Étterem",
+            "en": "Restaurant"
+        },
+        "desc": {
+            "hu": "Ez egy teszt",
+            "en": "This is a test"
+        },
+        "tech": "css ts php mysql",
+        "cover": "rabraby.webp"
+    },
+
+    "reshape": {
+        "name": "Reshape",
+        "title": {
+            "hu": "Életmód",
+            "en": "Lifestyle"
+        },
+        "desc": {
+            "hu": "Ez egy teszt",
+            "en": "This is a test"
+        },
+        "tech": "css ts php",
+        "cover": "reshape.webp"
+    },
+
+    "donut": {
+        "name": "Donut Paradise",
+        "title": {
+            "hu": "Digitális Névjegykártya",
+            "en": "Digital Business card"
+        },
+        "desc": {
+            "hu": "Ez egy teszt",
+            "en": "This is a test"
+        },
+        "tech": "css ts php",
+        "cover": null
+    },
+
+    "sol": {
+        "name": "SOL",
+        "title": {
+            "hu": "Digitális Névjegykártya",
+            "en": "Digital Business card"
+        },
+        "desc": {
+            "hu": "Ez egy teszt",
+            "en": "This is a test"
+        },
+        "tech": "css ts php",
+        "cover": null
+    },
+
+    "szelence": {
+        "name": "Szelence",
+        "title": {
+            "hu": "Digitális Névjegykártya",
+            "en": "Digital Business card"
+        },
+        "desc": {
+            "hu": "Ez egy teszt",
+            "en": "This is a test"
+        },
+        "tech": "css ts",
+        "cover": null
+    },
+
+    "wedding": {
+        "name": "Wedding",
+        "title": {
+            "hu": "Digitális Névjegykártya",
+            "en": "Digital Business card"
+        },
+        "desc": {
+            "hu": "Ez egy teszt",
+            "en": "This is a test"
+        },
+        "tech": "css ts",
+        "cover": null
+    },
+
+    "cookiecat": {
+        "name": "CookieCat",
+        "title": {
+            "hu": "Digitális Névjegykártya",
+            "en": "Digital Business card"
+        },
+        "desc": {
+            "hu": "Ez egy teszt",
+            "en": "This is a test"
+        },
+        "tech": "css ts",
+        "cover": null
+    },
+
+    "counter": {
+        "name": "Cash Counter",
+        "title": {
+            "hu": "Digitális Névjegykártya",
+            "en": "Digital Business card"
+        },
+        "desc": {
+            "hu": "Ez egy teszt",
+            "en": "This is a test"
+        },
+        "tech": "css ts",
+        "cover": "counter.webp"
+    },
+
+    "epit7ek": {
+        "name": "ÉPÍT7EK",
+        "title": {
+            "hu": "Digitális Névjegykártya",
+            "en": "Digital Business card"
+        },
+        "desc": {
+            "hu": "Ez egy teszt",
+            "en": "This is a test"
+        },
+        "tech": "wp",
+        "cover": null
+    }
+}

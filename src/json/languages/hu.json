@@ -1,0 +1,10 @@
+{
+    "iso": "hu",
+    "name": "Németh Norbert",
+    "menu": {
+        "home": "főoldal",
+        "work": "referencia",
+        "about": "rólam",
+        "contact": "kapcsolat"
+    }
+}
