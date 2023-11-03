@@ -1,7 +1,7 @@
 {
-    "iso": "en",
-    "title": "Norbert Németh (Web Developer)",
-    "menu": {
+    "lang": "en",
+    "name": "Norbert Németh",
+    "nav": {
         "home": "home",
         "work": "work",
         "about": "about",

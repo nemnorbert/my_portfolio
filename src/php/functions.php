@@ -1,17 +1,4 @@
 <?php
-set_include_path( $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR );
-
-// Read Cookies
-function cookieScan() {
-    global $cookieAccepted;
-    global $cookieLevel;
-
-    $cookieAccepted = false;
-    $cookieLevel = '{"necessary": false, "functionality": false, "tracking": false, "targeting": false}';
-    $cookieAccepted = isset($_COOKIE["cookie_consent_accepted"]) ? $_COOKIE["cookie_consent_accepted"] : $cookieAccepted;
-    $cookieLevel = isset($_COOKIE["cookie_consent_level"]) ? json_decode($_COOKIE["cookie_consent_level"], JSON_OBJECT_AS_ARRAY) : json_decode($cookieLevel, JSON_OBJECT_AS_ARRAY);
-}
-
 // Load JSON
 function loadJSON($filePath) {
     $json = file_get_contents($filePath);
@@ -24,102 +11,45 @@ function loadJSON($filePath) {
     return $data;
 }
 
-// Scan URL
-function scanURL() {
-    global $testServer;
-    global $siteInfo;
-
-    $url = $_SERVER['REQUEST_URI'];
-    $urlParts = explode("?", $url);
-    $urlParts = explode("/", $urlParts[0]);
-    
-    $testServer = (strtolower($urlParts[1]) === "nn_portfolio") ? true : false;
-    if ($testServer) {
-        $siteInfo -> mainPath = '/nn_portfolio/';
-        $siteInfo -> redcatPath = '/redcat_center/';
-    } else {
-        $siteInfo -> mainPath = '/';
-        $siteInfo -> redcatPath = 'https://center.red-cat.hu/';
-    }
+function urlRedirect($siteINFO) {
+    $url = $siteINFO -> mainPath . $siteINFO -> langSite;
+    header("HTTP/1.1 301 Moved Permanently");
+    header('Location: ' . $url . '/');
+    exit();
 }
 
-// Language Detection
-function languageDetect() {
-    global $langJSON;
-    global $siteLang;
-    $availableLanguages = ["hu", "en"];
-    
-    $siteLang = "en";
-    
-    // Check if language cookie is set
-    if (isset($_COOKIE['language'])) {
-        $cookieLanguage = strtolower($_COOKIE['language']);
-        
-        if (in_array($cookieLanguage, $availableLanguages)) {
-            $siteLang = $cookieLanguage;
-        }
-    } else {
-        if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-            $browserLanguages = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
-            $browserLanguage = strtolower(substr(chop($browserLanguages[0]), 0, 2));
-        
-            if (in_array($browserLanguage, $availableLanguages)) {
-                $siteLang = $browserLanguage;
-            }
-        }
-    }
-
-    // Import lang data from JSON
-    $langJSON = loadJSON('src/json/languages/'.$siteLang.'.json');
-}
-
-function buildGallery($projectJSON) {
+function buildGallery($siteINFO, $siteJSON) {
     $project = "";
-    for ($i=0; $i < count($projectJSON["active"]); $i++) { 
-        $name = $projectJSON["active"][$i];
-        $project .= 
-        '<div class="filter '.$projectJSON[$name]['tech'].'">
-            <b>'.$projectJSON[$name]['name'].'</b>
-            <img src="./img/work/'.$projectJSON[$name]['cover'].'" alt="">
+
+    foreach ($siteJSON["project"] as $item) {
+        $project .= '<div class="filter '.$item['tech'].'">
+            <b>'.$item['name'].'</b>
+            <img src="'. $siteINFO -> mainPath .'img/work/'.$item['cover'].'" alt="">
         </div>';
     }
+
     echo $project;
 }
 
+function buildMenu($siteJSON, $langJSON) {
+    $html = "";
 
+    for ($i=0; $i < count($siteJSON["nav"]); $i++) { 
+        $html .= '<a href="#'. $siteJSON["nav"][$i] .'">
+            <div class="icon"><i class="'. $siteJSON["icons"][$i] .'"></i></div>
+            <div class="text">'. $siteJSON["nav"][$i] .'</div>
+        </a>';
+    }
 
-
-
-
-
-
-
-
+    echo $html;
+}
 
 function printSocial()
 {
-    echo
-    '<div class="social">
+    echo '<div class="social">
         <a href="#" target="_blank"><i class="bi bi-facebook"></i></a>
         <a href="#" target="_blank"><i class="bi bi-github"></i></a>
         <a href="#" target="_blank"><i class="bi bi-behance"></i></a>
     </div>';
 }
-
-
-///////////////////// BACKEND
-$testServer;
-$siteInfo = new stdClass();
-scanURL();
-
-$cookieAccepted;
-$cookieLevel;
-cookieScan();
-
-$siteJSON = loadJSON('src/json/site.json');
-$projectJSON = loadJSON('src/json/project.json');
-
-$siteLang;
-$langJSON;
-languageDetect();
 ?>

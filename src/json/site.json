@@ -1,9 +1,125 @@
 {
     "title": "",
-    "social": {
+    "contact": {
         "facebook": "",
         "github": "",
         "behance": "",
         "email": ""
-    }
+    },
+    "nav": ["home", "work", "about", "contact"],
+    "icons": ["bi bi-house-fill", "bi bi-easel-fill", "bi bi-person-circle", "bi bi-envelope-fill"],
+    "mainPath": {
+        "test": "/nn_portfolio/",
+        "web": "/"
+    },
+    "redcatPath": {
+        "test": "/redcat/",
+        "web": "https://center.red-cat.hu/"
+    },
+    "project": [
+        {
+            "name": "REDCAT iD",
+            "title": {
+                "hu": "Digitális Névjegykártya",
+                "en": "Digital Business card"
+            },
+            "desc": {
+                "hu": "Ez egy teszt",
+                "en": "This is a test"
+            },
+            "tech": "css ts php mysql",
+            "cover": "redcat_id.webp"
+        },
+        {
+            "name": "Rab Ráby",
+            "title": {
+                "hu": "Étterem",
+                "en": "Restaurant"
+            },
+            "desc": {
+                "hu": "Ez egy teszt",
+                "en": "This is a test"
+            },
+            "tech": "css ts php mysql",
+            "cover": "rabraby.webp"
+        },
+        {
+            "name": "Reshape",
+            "title": {
+                "hu": "Életmód",
+                "en": "Lifestyle"
+            },
+            "desc": {
+                "hu": "Ez egy teszt",
+                "en": "This is a test"
+            },
+            "tech": "css ts php",
+            "cover": "reshape.webp"
+        },
+        {
+            "name": "Cash Counter",
+            "title": {
+                "hu": "JS Projekt",
+                "en": "JS Project"
+            },
+            "desc": {
+                "hu": "Ez egy teszt",
+                "en": "This is a test"
+            },
+            "tech": "css ts",
+            "cover": "counter.webp"
+        },
+        {
+            "name": "SOL",
+            "title": {
+                "hu": "Digitális Névjegykártya",
+                "en": "Digital Business card"
+            },
+            "desc": {
+                "hu": "Ez egy teszt",
+                "en": "This is a test"
+            },
+            "tech": "css ts php",
+            "cover": null
+        },
+        {
+            "name": "Donut Paradise",
+            "title": {
+                "hu": "Digitális Névjegykártya",
+                "en": "Digital Business card"
+            },
+            "desc": {
+                "hu": "Ez egy teszt",
+                "en": "This is a test"
+            },
+            "tech": "css ts php",
+            "cover": null
+        },
+        {
+            "name": "Szelence",
+            "title": {
+                "hu": "Digitális Névjegykártya",
+                "en": "Digital Business card"
+            },
+            "desc": {
+                "hu": "Ez egy teszt",
+                "en": "This is a test"
+            },
+            "tech": "css ts",
+            "cover": null
+        },
+        {
+            "name": "Wedding",
+            "title": {
+                "hu": "Digitális Névjegykártya",
+                "en": "Digital Business card"
+            },
+            "desc": {
+                "hu": "Ez egy teszt",
+                "en": "This is a test"
+            },
+            "tech": "css ts",
+            "cover": null
+        }
+    ]
 }

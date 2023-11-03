@@ -1,7 +1,7 @@
 {
-    "iso": "hu",
+    "lang": "hu",
     "name": "Németh Norbert",
-    "menu": {
+    "nav": {
         "home": "főoldal",
         "work": "referencia",
         "about": "rólam",

@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# www -> non-www and HTTP -> HTTPS
+RewriteCond %{HTTP_HOST} !^localhost$
+RewriteCond %{HTTP_HOST} ^www.me.red-cat.hu [NC]
+RewriteRule ^(.*)$ https://me.red-cat.hu/$1 [L,R=301]
+
+# Közvetlen kiszolgálás, ha a kért fájl vagy könyvtár létezik
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php
