@@ -35,10 +35,14 @@ function buildMenu($siteJSON, $langJSON) {
     $html = "";
 
     for ($i=0; $i < count($siteJSON["nav"]); $i++) { 
-        $html .= '<a href="#'. $siteJSON["nav"][$i] .'">
-            <div class="icon"><i class="'. $siteJSON["icons"][$i] .'"></i></div>
-            <div class="text">'. $siteJSON["nav"][$i] .'</div>
-        </a>';
+        $active = $i === 0 ? ' active' : '';
+        $html .= 
+        '<div class="item'.$active.'">
+            <a href="#'. $siteJSON["nav"][$i] .'">
+                <span class="icon"><i class="'. $siteJSON["icons"][$i] .'"></i></span>
+                <span class="text">'. $siteJSON["nav"][$i] .'</span>
+            </a>
+        </div>';
     }
 
     echo $html;

@@ -20,13 +20,19 @@ $transition1: .25s;
     margin: 0;
     padding: 0;
 }
+:root {
+  --colorMain: red;
+  --colorSecundary: rgb(206, 2, 2);
+  --colorBg: rgb(22, 22, 22);
+  --colorBgMenu: rgb(15, 15, 15);
+  --colorBgMenu2: rgba(15, 15, 15, .85);
+}
+
+
 a {
     text-decoration: none;
     color: $colorText;
     transition: opacity $transition1;
-}
-a:hover {
-  opacity: .7;
 }
 h1,h2,h3,h4,h5,h6 {
   text-transform: uppercase;
@@ -71,32 +77,171 @@ html {
   }
 
 //////////////////////// NAVIGATION
-nav {
+#navMobile {
+  position: fixed;
+  z-index: 50;
+  bottom: 0;
+  width: 100%;
+
+  .menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 0 2.85em;
+    background-image: linear-gradient(to bottom, var(--colorBgMenu), var(--colorBgMenu2));
+    backdrop-filter: blur(8px);
+  }
+  .menuBorder {
+    position: absolute;
+    left: 0;
+    height: 2.4em;
+    width: 10.9em;
+    bottom: 99%;
+    clip-path: url(#menu);
+    will-change: transform;
+    background-color: var(--colorBgMenu);
+  }
+
+
+  .menuItem {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    //width: 2.8em;
+    //height: 2.8em;
+    padding: 10px 0;
+
+    .icon {
+      width: 50px;
+      z-index: 1;
+      padding: 5px;
+
+      path {
+        fill: white;
+      }
+    }
+    .text {
+      font-size: 12px;
+    }
+  }
+  .menuItem:hover {
+    background-color: var(--colorMain);
+
+  }
+  .svg-container {
+    width: 0;
+    height: 0;
+  }
+}
+
+
+
+/*
+$mobileIconSize: 70px;
+$mobileIconTrans: .5s;
+
+#mobileNAV::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  height: 10px;
+  width: 100%;
+  background-color: var(--colorBg);
+  z-index: -1;
+}
+#mobileNAV {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
   z-index: 50;
-  background-color: black;
-  justify-items: center;
-  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: var(--colorMain);
+  background-image: linear-gradient(to bottom, var(--colorMain), var(--colorSecundary));
   
+  .base {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: calc($mobileIconSize * 4);
+  }
+  .item {
+    height: $mobileIconSize;
+    width: $mobileIconSize;
+    z-index: 51;
+  }
   a {
-    grid-column: span 3;
     display: flex;
     flex-direction: column;
     color: rgb(255, 255, 255);
     font-weight: bold;
-    padding: 10px;
     align-items: center;
+
+    .icon {
+      position: relative;
+      display: block;
+      line-height: $mobileIconSize;
+      font-size: 2rem;
+      line-height: $mobileIconSize;
+      transition: $mobileIconTrans;
+    }
+    .text {
+      position: absolute;
+      opacity: 0;
+      transform: translateY(calc($mobileIconSize / 1.5));
+      letter-spacing: .05em;
+      transition: $mobileIconTrans;
+    }
   }
-  .icon {
-    font-size: 2rem;
-    padding: 1rem;
-    background-color: red;
+  .active {
+    .icon {
+      transform: translateY(-35px);
+    }
+    .text {
+      opacity: 1;
+      transform: translateY(calc($mobileIconSize / 1.5 - 10px));
+    }
   }
+
+  .indicator {
+    position: absolute;
+    left: 0;
+    top: -50%;
+    height: $mobileIconSize;
+    width: $mobileIconSize;
+    background-color: var(--colorMain);
+    border-radius: 50%;
+    border: 5px solid var(--colorBg);
+    transition: $mobileIconTrans;
+  }
+  .indicator::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -21px;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 0px -10px 0 0 var(--colorBg);
+  }
+  .indicator::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -21px;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: 0px -10px 0 0 var(--colorBg);
+  }
+
 
   .logo {
     display: none;
@@ -113,6 +258,7 @@ nav {
     50% {transform: rotate(340deg) scale(1);}
   }
 }
+*/
 
 // SITE
 #home {
@@ -170,12 +316,19 @@ nav {
   .active {
     background-color: $colorMain;
   }
-  #workSelect {
-    gap: 8px;
+  
+  // Filter Menu
+  #filterMenu {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0 5px;
+    gap: 5px;
+    overflow-x: auto;
+    width: 100%;
+    padding: 8px 0 8px 10px;
+
+    .btn {
+      gap: 5px;
+      display: flex;
+    }
   }
   #gallery {
     gap: 4px;
