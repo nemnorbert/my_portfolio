@@ -48,7 +48,7 @@ function buildMenu($siteJSON, $langJSON) {
     echo $html;
 }
 
-function printSocial()
+function printContact()
 {
     echo '<div class="social">
         <a href="#" target="_blank"><i class="bi bi-facebook"></i></a>

@@ -1,4 +1,5 @@
-console.log("hello");
+const body = document.body;
+
 
 // Reference Filter
 function filterSelect(category) {
@@ -21,102 +22,51 @@ function filterSelect(category) {
   });
 }
 
+// Mobile Menu
+class mobileMenu {
+  constructor() {
+    this.body = document.body;
+    this.menu = this.body.querySelector(".mobMenu");
+    this.menuItems = this.menu.querySelectorAll(".mobNavItem");
+    this.menuBorder = this.menu.querySelector(".mobNavBord");
+    this.activeItem = this.menu.querySelector(".mobNavActive");
 
+    this.menuItems.forEach((item, index) => {
+      item.addEventListener("click", () => this.clickItem(item, index));
+    });
 
+    this.offsetMenuBorder(this.activeItem, this.menuBorder);
+    this.menu.style.removeProperty("--timeOut");
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-// PRELOADER
-function PreLoader() {
-    setTimeout(function(){
-      document.getElementById('pre_loader').style.display = 'none';
-    }, 2000)
-  }
-  
-  ///////////////
-  filterSel("all")
-  function filterSel(c) {
-    var x, i;
-    x = document.getElementsByClassName("filterDiv");
-    if (c == "all") c = "";
-    // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
-    for (i = 0; i < x.length; i++) {
-      w3RemoveClass(x[i], "show");
-      if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-    }
-  }
-  
-  // Show filtered elements
-  function w3AddClass(element, name) {
-    var i, arr1, arr2;
-    arr1 = element.className.split(" ");
-    arr2 = name.split(" ");
-    for (i = 0; i < arr2.length; i++) {
-      if (arr1.indexOf(arr2[i]) == -1) {
-        element.className += " " + arr2[i];
-      }
-    }
-  }
-  
-  // Hide elements that are not selected
-  function w3RemoveClass(element, name) {
-    var i, arr1, arr2;
-    arr1 = element.className.split(" ");
-    arr2 = name.split(" ");
-    for (i = 0; i < arr2.length; i++) {
-      while (arr1.indexOf(arr2[i]) > -1) {
-        arr1.splice(arr1.indexOf(arr2[i]), 1);
-      }
-    }
-    element.className = arr1.join(" ");
-  }
-  
-  // Add active class to the current control button (highlight it)
-  var btnContainer = document.getElementById("myBtnContainer");
-  var btns = btnContainer.getElementsByClassName("btn");
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function() {
-      var current = document.getElementsByClassName("active");
-      current[0].className = current[0].className.replace(" active", "");
-      this.className += " active";
+    window.addEventListener("resize", () => {
+      this.offsetMenuBorder(this.activeItem, this.menuBorder);
+      this.menu.style.setProperty("--timeOut", "none");
     });
   }
-  
-  ///////// DARK MODE
-  function DarkSwitch() {
-    const darkModeBtn = document.querySelector("#darkMode");
-    const useDark = window.matchMedia("(prefers-color-scheme: dark)");
-    function toggleDarkMode(state) {
-      document.documentElement.classList.toggle("darkMode", state);
-      DarkIconS();
+
+  clickItem(item, index) {
+    this.menu.style.removeProperty("--timeOut");
+
+    if (this.activeItem === item) return;
+
+    if (this.activeItem) {
+      this.activeItem.classList.remove("mobNavActive");
     }
-    toggleDarkMode(useDark.matches);
-    useDark.addListener((evt) => toggleDarkMode(evt.matches));
-  
-    darkModeBtn.addEventListener("click", () => {
-      document.documentElement.classList.toggle("darkMode");
-      DarkIconS();
-    });
-  
-    function DarkIconS() {
-      if (document.documentElement.classList.value == "darkMode") {
-        darkMode.src = "img/sun-fill.svg";
-      } else {
-        darkMode.src = "img/moon-fill.svg";
-      }
-    }
+
+    item.classList.add("mobNavActive");
+    this.activeItem = item;
+    this.offsetMenuBorder(this.activeItem, this.menuBorder);
   }
-  window.addEventListener("DOMContentLoaded", DarkSwitch);
-  window.addEventListener("DOMContentLoaded", PreLoader);
-  */
+
+  offsetMenuBorder(element, menuBorder) {
+    const offsetActiveItem = element.getBoundingClientRect();
+    const left = Math.floor(
+      offsetActiveItem.left -
+        this.menu.offsetLeft -
+        (menuBorder.offsetWidth - offsetActiveItem.width) / 2
+    );
+    menuBorder.style.transform = `translate3d(${left}px, 0, 0)`;
+  }
+}
+
+new mobileMenu();
