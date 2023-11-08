@@ -44,13 +44,7 @@
     <div id="work" class="box">
         <h2><?= $langJSON["nav"]["work"] ?></h2>
         <div id="filterMenu">
-            <div class="btn active" onclick="filterSelect('all')">összes</div>
-            <div class="btn" onclick="filterSelect('css')"><i class="devicon-sass-plain"></i> css</div>
-            <div class="btn" onclick="filterSelect('ts')"><i class="devicon-typescript-plain"></i> typescript</div>
-            <div class="btn" onclick="filterSelect('react')"><i class="devicon-react-plain"></i> react</div>
-            <div class="btn" onclick="filterSelect('php')"><i class="devicon-php-plain"></i> php</div>
-            <div class="btn" onclick="filterSelect('mysql')"><i class="devicon-mysql-plain"></i> mysql</div>
-            <div class="btn" onclick="filterSelect('wp')"><i class="devicon-wordpress-plain"></i> wordpress</div>
+            <?= filterMenu(); ?>
         </div>
         <div id="gallery">
             <?php buildGallery($siteINFO, $siteJSON); ?>

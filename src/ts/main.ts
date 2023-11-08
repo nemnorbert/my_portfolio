@@ -1,13 +1,19 @@
 let loadtime: number = new Date().getTime();
 
+let filterItems = document.querySelectorAll('.filterItem');
+filterItems.forEach((item) => {
+  item.addEventListener("click", filterSelect);
+});
+
 // Reference Filter
-function filterSelect(category) {
+function filterSelect() {
   const filters = document.querySelectorAll('.filter');
-  const buttons = document.querySelectorAll('.btn');
+  const buttons = document.querySelectorAll('.filterItem');
+  const category = this.dataset.tech;
 
   buttons.forEach(button => {
     button.classList.remove('active');
-    if (button.getAttribute('onclick').includes(`'${category}'`)) {
+    if (button.dataset.tech === category) {
       button.classList.add('active');
     }
   });

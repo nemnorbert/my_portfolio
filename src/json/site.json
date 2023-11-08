@@ -16,6 +16,16 @@
         "test": "/redcat/",
         "web": "https://center.red-cat.hu/"
     },
+    "tech": [
+        {"code": "html", "name": "html", "svg": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"},
+        {"code": "css", "name": "css", "svg": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"},
+        {"code": "js", "name": "javascript", "svg": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"},
+        {"code": "ts", "name": "typescript", "svg": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"},
+        {"code": "react", "name": "react", "svg": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"},
+        {"code": "sql", "name": "sql", "svg": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg"},
+        {"code": "php", "name": "php", "svg": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg"},
+        {"code": "wp", "name": "wordpress", "svg": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg"}
+    ],
     "project": [
         {
             "name": "REDCAT iD",
@@ -27,7 +37,7 @@
                 "hu": "Ez egy teszt",
                 "en": "This is a test"
             },
-            "tech": "css ts php mysql",
+            "tech": "css ts php sql",
             "cover": "redcat_id.webp"
         },
         {
@@ -40,7 +50,7 @@
                 "hu": "Ez egy teszt",
                 "en": "This is a test"
             },
-            "tech": "css ts php mysql",
+            "tech": "css ts php",
             "cover": "rabraby.webp"
         },
         {
@@ -53,7 +63,7 @@
                 "hu": "Ez egy teszt",
                 "en": "This is a test"
             },
-            "tech": "css ts php",
+            "tech": "css js php",
             "cover": "reshape.webp"
         },
         {
@@ -66,7 +76,7 @@
                 "hu": "Ez egy teszt",
                 "en": "This is a test"
             },
-            "tech": "css ts",
+            "tech": "css js",
             "cover": "counter.webp"
         }
     ]

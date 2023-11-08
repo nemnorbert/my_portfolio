@@ -48,6 +48,27 @@ function buildMenu($siteJSON, $langJSON) {
     echo $html;
 }
 
+function filterMenu() {
+    global $siteJSON, $langJSON;
+    $html = "";
+
+    foreach ($siteJSON["tech"] as $item) {
+        $first = $item["code"] === "html";
+
+        $active = $first ? " active" : "";
+        $name = $first ? $langJSON["all"] : $item["name"];
+        $code = $first ? "all" : $item["code"];
+
+        $html .= '
+        <div class="btn filterItem'.$active.'" data-tech="'.$code.'"> 
+            <img src="'.$item["svg"].'" alt="">
+            <div class="text">'.$name.'</div>
+        </div>';
+    }
+
+    return $html;
+}
+
 function printContact()
 {
     echo '<div class="social">

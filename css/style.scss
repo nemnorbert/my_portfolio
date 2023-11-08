@@ -41,17 +41,12 @@ a {
 h1,h2,h3,h4,h5,h6 {
   text-transform: uppercase;
 }
-h1 {
-  font-size: 4rem;
-}
-h2 {
-  font-size: 3rem;
-}
 html {
   scroll-behavior: smooth;
   font-family: 'Montserrat', sans-serif;
   background-color: rgb(39, 39, 39);
   color: $colorText;
+  min-width: $min_w;
 }
 .box {
   min-height: 90vh;
@@ -311,8 +306,17 @@ html {
     padding: 8px 0 8px 10px;
 
     .btn {
-      gap: 5px;
+      gap: 10px;
       display: flex;
+      align-items: center;
+      padding: 0 10px 0 0;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+
+      img {
+        height: 35px;
+        width: 35px;
+        border-radius: 50% 0 0 50%;
+      }
     }
   }
   #gallery {
