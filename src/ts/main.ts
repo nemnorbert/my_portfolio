@@ -1,5 +1,4 @@
-const body = document.body;
-
+let loadtime: number = new Date().getTime();
 
 // Reference Filter
 function filterSelect(category) {
@@ -22,7 +21,25 @@ function filterSelect(category) {
   });
 }
 
-// Mobile Menu
+// PreLoader
+const preLoader = async () => {
+  const preLoader: HTMLElement | null = document.querySelector('#preLoader');
+  loadtime = (new Date().getTime() - loadtime) / 1000;
+  console.log(loadtime);
+
+  const idealTime = 2;
+  const loadtime_bonus = loadtime <= idealTime ? (idealTime - loadtime)*1000 : 0;
+  const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+  await delay(loadtime_bonus);
+
+  if (preLoader !== null) {
+    preLoader.style.transform = "translateY(-110%)";
+    setTimeout(() => {
+      preLoader.style.display = "none";
+    }, 500);
+  }
+}
+
 class mobileMenu {
   constructor() {
     this.body = document.body;
@@ -30,6 +47,10 @@ class mobileMenu {
     this.menuItems = this.menu.querySelectorAll(".mobNavItem");
     this.menuBorder = this.menu.querySelector(".mobNavBord");
     this.activeItem = this.menu.querySelector(".mobNavActive");
+
+    window.addEventListener("hashchange", () => {
+      this.checkUrlHash();
+    });
 
     this.menuItems.forEach((item, index) => {
       item.addEventListener("click", () => this.clickItem(item, index));
@@ -70,3 +91,4 @@ class mobileMenu {
 }
 
 new mobileMenu();
+window.addEventListener("load", preLoader);

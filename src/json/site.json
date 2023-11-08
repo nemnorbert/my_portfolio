@@ -68,58 +68,6 @@
             },
             "tech": "css ts",
             "cover": "counter.webp"
-        },
-        {
-            "name": "SOL",
-            "title": {
-                "hu": "Digitális Névjegykártya",
-                "en": "Digital Business card"
-            },
-            "desc": {
-                "hu": "Ez egy teszt",
-                "en": "This is a test"
-            },
-            "tech": "css ts php",
-            "cover": null
-        },
-        {
-            "name": "Donut Paradise",
-            "title": {
-                "hu": "Digitális Névjegykártya",
-                "en": "Digital Business card"
-            },
-            "desc": {
-                "hu": "Ez egy teszt",
-                "en": "This is a test"
-            },
-            "tech": "css ts php",
-            "cover": null
-        },
-        {
-            "name": "Szelence",
-            "title": {
-                "hu": "Digitális Névjegykártya",
-                "en": "Digital Business card"
-            },
-            "desc": {
-                "hu": "Ez egy teszt",
-                "en": "This is a test"
-            },
-            "tech": "css ts",
-            "cover": null
-        },
-        {
-            "name": "Wedding",
-            "title": {
-                "hu": "Digitális Névjegykártya",
-                "en": "Digital Business card"
-            },
-            "desc": {
-                "hu": "Ez egy teszt",
-                "en": "This is a test"
-            },
-            "tech": "css ts",
-            "cover": null
         }
     ]
 }

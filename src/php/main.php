@@ -5,18 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $langJSON["name"] . ' (' . $siteINFO -> langSite . ')' ?></title>
-    <link rel="stylesheet" href="<?= $siteINFO -> mainPath ?>css/style.css">
+    <link rel="stylesheet" href="<?= $siteINFO -> mainPath ?>css/style.css?v=<?= time() ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     <meta name="theme-color" content="#ff0000">
 </head>
 <body>
 
-<div id="preLoader"></div>
+<div id="preLoader">
+    <div class="inner">
+        <div class="front">NN</div>
+        <div class="back">Németh Norbert</div>
+    </div>
+    <div class="loading">loading</div>
+</div>
 
-<main>
+<main id="main">
     <div id="home" class="box">
         <div id="parallax">
-            <img id="parallax1" src="./img/parallax/01.webp" alt="">
+            <img id="parallax1" src="<?= $siteINFO -> mainPath ?>img/parallax/01.webp" alt="">
         </div>
         <div class="title">
             <h1><?= $langJSON["name"] ?></h1>
@@ -26,7 +32,13 @@
     </div>
 
     <nav id="navDesktop">
-        <div>Teszt</div>
+        <div class="logo">NN</div>
+        <div class="menu">
+            <div>Főoldal</div>
+            <div>Munka</div>
+            <div>Rólam</div>
+            <div>Kapcsolat</div>
+        </div>
     </nav>
 
     <div id="work" class="box">
@@ -123,6 +135,6 @@
     </div>
 </footer>
 
-<script src="<?= $siteINFO -> mainPath ?>js/main.js"></script>
+<script src="<?= $siteINFO -> mainPath ?>js/main.js?v=<?= time() ?>"></script>
 </body>
 </html>
