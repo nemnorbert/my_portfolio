@@ -58,7 +58,18 @@
 
     <div id="contact" class="box">
         <h2><?= $langJSON["nav"]["contact"] ?></h2>
-        
+        <div>
+            <?php printContact(); ?>
+        </div>
+
+        <b>Írj közvetlen az oldalról</b>
+        <form action="feldolgozas.php" method="post">
+            <input type="text" id="nev" name="nev" placeholder="Név" required><br>
+            <input type="email" id="email" name="email"  placeholder="Email" required><br>
+            <textarea id="szoveg" name="szoveg" rows="4" cols="50"  placeholder="Szöveg" required></textarea><br>
+
+            <input type="submit" value="Küldés">
+        </form>
     </div>
 </main>
 
